@@ -48,7 +48,7 @@ export default buildConfig({
         process.env.DATABASE_URI ||
         'postgresql://justin@localhost:5432/openclaw_club',
     },
-    push: process.env.NODE_ENV !== 'production',
+    push: false,
   }),
   i18n: {
     fallbackLanguage: 'zh',
