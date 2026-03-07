@@ -1,0 +1,47 @@
+{
+  "common": {
+    "welcome": "Bienvenido a OpenClaw Club",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar sesión",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "search": "Buscar",
+    "loading": "Cargando...",
+    "error": "Se produjo un error",
+    "success": "Operación exitosa",
+    "back": "Volver",
+    "next": "Siguiente"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "subscriptions": "Suscripciones",
+    "tokenHub": "Token Hub",
+    "training": "Formación",
+    "hardware": "Tienda de hardware",
+    "support": "Soporte",
+    "profile": "Perfil"
+  },
+  "install": {
+    "standard": "Instalación estándar",
+    "professional": "Instalación profesional",
+    "enterprise": "Instalación empresarial",
+    "orderCreated": "Orden de instalación creada",
+    "dispatching": "Buscando un ingeniero...",
+    "inProgress": "Instalación en progreso",
+    "pendingAcceptance": "Pendiente de su aceptación"
+  },
+  "notification": {
+    "orderConfirmed": "Su pedido ha sido confirmado",
+    "paymentReceived": "Pago recibido",
+    "engineerAssigned": "Se ha asignado un ingeniero",
+    "serviceCompleted": "Servicio completado, por favor evalúe",
+    "ticketUpdated": "Su ticket ha sido actualizado",
+    "subscriptionRenewal": "Recordatorio de renovación de suscripción"
+  }
+}

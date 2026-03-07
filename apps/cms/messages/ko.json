@@ -1,0 +1,88 @@
+{
+  "common": {
+    "login": "로그인",
+    "register": "회원가입",
+    "logout": "로그아웃",
+    "home": "홈",
+    "products": "제품",
+    "orders": "주문",
+    "settings": "설정",
+    "submit": "제출",
+    "cancel": "취소",
+    "save": "저장",
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "success": "작업이 완료되었습니다"
+  },
+  "nav": {
+    "home": "홈",
+    "products": "제품 카탈로그",
+    "orders": "내 주문",
+    "engineer": "엔지니어 대시보드",
+    "login": "로그인",
+    "register": "회원가입"
+  },
+  "auth": {
+    "loginTitle": "로그인",
+    "registerTitle": "회원가입",
+    "email": "이메일",
+    "password": "비밀번호",
+    "confirmPassword": "비밀번호 확인",
+    "loginButton": "로그인",
+    "registerButton": "회원가입",
+    "noAccount": "계정이 없으신가요?",
+    "hasAccount": "이미 계정이 있으신가요?"
+  },
+  "products": {
+    "title": "제품 카탈로그",
+    "viewDetails": "상세 보기",
+    "price": "가격",
+    "outOfStock": "품절",
+    "addToOrder": "주문에 추가"
+  },
+  "orders": {
+    "title": "내 주문",
+    "newOrder": "새 주문",
+    "orderNumber": "주문 번호",
+    "status": "상태",
+    "total": "총 금액",
+    "pay": "결제",
+    "paymentSuccess": "결제 완료",
+    "paymentCancel": "결제 취소"
+  },
+  "engineer": {
+    "title": "엔지니어 대시보드",
+    "pendingOrders": "대기 중인 주문",
+    "activeOrders": "진행 중인 주문",
+    "accept": "수락",
+    "submitReport": "납품 보고서 제출"
+  },
+  "review": {
+    "title": "서비스 평가",
+    "overallRating": "종합 평점",
+    "attitudeRating": "태도 평점",
+    "skillRating": "기술 평점",
+    "comment": "댓글",
+    "commentPlaceholder": "서비스 경험을 공유해 주세요 (선택사항)",
+    "submitReview": "평가 제출",
+    "ratingRequired": "평점을 선택해 주세요 (1-5)",
+    "submitSuccess": "평가가 제출되었습니다!",
+    "submitError": "평가 제출에 실패했습니다. 다시 시도해 주세요",
+    "orderLabel": "주문 번호"
+  },
+  "theme": {
+    "light": "라이트 모드",
+    "dark": "다크 모드",
+    "toggle": "테마 전환"
+  },
+  "footer": {
+    "copyright": "© {year} OpenClaw Club. All rights reserved.",
+    "privacy": "개인정보 처리방침",
+    "terms": "이용약관",
+    "contact": "문의하기"
+  },
+  "header": {
+    "menu": "메뉴",
+    "language": "언어"
+  }
+}

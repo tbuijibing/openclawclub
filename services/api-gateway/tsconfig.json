@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@openclaw-club/shared": ["../../packages/shared/src"],
+      "@openclaw-club/shared/*": ["../../packages/shared/src/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "../user-service/src/**/*",
+    "../order-service/src/**/*",
+    "../install-service/src/**/*",
+    "../subscription-service/src/**/*",
+    "../token-hub-service/src/**/*",
+    "../concierge-service/src/**/*",
+    "../cert-service/src/**/*",
+    "../enterprise-service/src/**/*",
+    "../partner-service/src/**/*",
+    "../ticket-service/src/**/*",
+    "../hardware-service/src/**/*",
+    "../integration-service/src/**/*",
+    "../analytics-service/src/**/*",
+    "../compliance-service/src/**/*"
+  ]
+}

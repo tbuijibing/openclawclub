@@ -1,0 +1,88 @@
+{
+  "common": {
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar sesión",
+    "home": "Inicio",
+    "products": "Productos",
+    "orders": "Pedidos",
+    "settings": "Configuración",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "success": "Operación exitosa"
+  },
+  "nav": {
+    "home": "Inicio",
+    "products": "Catálogo de productos",
+    "orders": "Mis pedidos",
+    "engineer": "Panel de ingeniero",
+    "login": "Iniciar sesión",
+    "register": "Registrarse"
+  },
+  "auth": {
+    "loginTitle": "Iniciar sesión",
+    "registerTitle": "Registrarse",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "loginButton": "Iniciar sesión",
+    "registerButton": "Registrarse",
+    "noAccount": "¿No tienes cuenta?",
+    "hasAccount": "¿Ya tienes cuenta?"
+  },
+  "products": {
+    "title": "Catálogo de productos",
+    "viewDetails": "Ver detalles",
+    "price": "Precio",
+    "outOfStock": "Agotado",
+    "addToOrder": "Agregar al pedido"
+  },
+  "orders": {
+    "title": "Mis pedidos",
+    "newOrder": "Nuevo pedido",
+    "orderNumber": "Número de pedido",
+    "status": "Estado",
+    "total": "Monto total",
+    "pay": "Pagar",
+    "paymentSuccess": "Pago exitoso",
+    "paymentCancel": "Pago cancelado"
+  },
+  "engineer": {
+    "title": "Panel de ingeniero",
+    "pendingOrders": "Pedidos pendientes",
+    "activeOrders": "Pedidos activos",
+    "accept": "Aceptar",
+    "submitReport": "Enviar informe de entrega"
+  },
+  "review": {
+    "title": "Evaluación del servicio",
+    "overallRating": "Calificación general",
+    "attitudeRating": "Calificación de actitud",
+    "skillRating": "Calificación de habilidad",
+    "comment": "Comentario",
+    "commentPlaceholder": "Comparta su experiencia (opcional)",
+    "submitReview": "Enviar evaluación",
+    "ratingRequired": "Por favor seleccione una calificación (1-5)",
+    "submitSuccess": "¡Evaluación enviada con éxito!",
+    "submitError": "Error al enviar la evaluación, intente de nuevo",
+    "orderLabel": "Número de pedido"
+  },
+  "theme": {
+    "light": "Modo claro",
+    "dark": "Modo oscuro",
+    "toggle": "Cambiar tema"
+  },
+  "footer": {
+    "copyright": "© {year} OpenClaw Club. Todos los derechos reservados.",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "contact": "Contáctenos"
+  },
+  "header": {
+    "menu": "Menú",
+    "language": "Idioma"
+  }
+}

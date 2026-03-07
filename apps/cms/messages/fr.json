@@ -1,0 +1,88 @@
+{
+  "common": {
+    "login": "Connexion",
+    "register": "Inscription",
+    "logout": "Déconnexion",
+    "home": "Accueil",
+    "products": "Produits",
+    "orders": "Commandes",
+    "settings": "Paramètres",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "success": "Opération réussie"
+  },
+  "nav": {
+    "home": "Accueil",
+    "products": "Catalogue produits",
+    "orders": "Mes commandes",
+    "engineer": "Tableau de bord ingénieur",
+    "login": "Connexion",
+    "register": "Inscription"
+  },
+  "auth": {
+    "loginTitle": "Connexion",
+    "registerTitle": "Inscription",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "loginButton": "Se connecter",
+    "registerButton": "S'inscrire",
+    "noAccount": "Pas encore de compte ?",
+    "hasAccount": "Déjà un compte ?"
+  },
+  "products": {
+    "title": "Catalogue produits",
+    "viewDetails": "Voir les détails",
+    "price": "Prix",
+    "outOfStock": "Rupture de stock",
+    "addToOrder": "Ajouter à la commande"
+  },
+  "orders": {
+    "title": "Mes commandes",
+    "newOrder": "Nouvelle commande",
+    "orderNumber": "Numéro de commande",
+    "status": "Statut",
+    "total": "Montant total",
+    "pay": "Payer",
+    "paymentSuccess": "Paiement réussi",
+    "paymentCancel": "Paiement annulé"
+  },
+  "engineer": {
+    "title": "Tableau de bord ingénieur",
+    "pendingOrders": "Commandes en attente",
+    "activeOrders": "Commandes en cours",
+    "accept": "Accepter",
+    "submitReport": "Soumettre le rapport"
+  },
+  "review": {
+    "title": "Évaluation du service",
+    "overallRating": "Note globale",
+    "attitudeRating": "Note d'attitude",
+    "skillRating": "Note de compétence",
+    "comment": "Commentaire",
+    "commentPlaceholder": "Partagez votre expérience (facultatif)",
+    "submitReview": "Soumettre l'évaluation",
+    "ratingRequired": "Veuillez sélectionner une note (1-5)",
+    "submitSuccess": "Évaluation soumise avec succès !",
+    "submitError": "Échec de la soumission, veuillez réessayer",
+    "orderLabel": "Numéro de commande"
+  },
+  "theme": {
+    "light": "Mode clair",
+    "dark": "Mode sombre",
+    "toggle": "Changer de thème"
+  },
+  "footer": {
+    "copyright": "© {year} OpenClaw Club. Tous droits réservés.",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "contact": "Nous contacter"
+  },
+  "header": {
+    "menu": "Menu",
+    "language": "Langue"
+  }
+}

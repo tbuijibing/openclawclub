@@ -1,0 +1,47 @@
+{
+  "common": {
+    "welcome": "OpenClaw Club에 오신 것을 환영합니다",
+    "login": "로그인",
+    "register": "회원가입",
+    "logout": "로그아웃",
+    "submit": "제출",
+    "cancel": "취소",
+    "confirm": "확인",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "search": "검색",
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "success": "작업이 성공했습니다",
+    "back": "뒤로",
+    "next": "다음"
+  },
+  "nav": {
+    "home": "홈",
+    "services": "서비스",
+    "subscriptions": "구독",
+    "tokenHub": "Token Hub",
+    "training": "교육",
+    "hardware": "하드웨어 스토어",
+    "support": "고객지원",
+    "profile": "프로필"
+  },
+  "install": {
+    "standard": "표준 설치",
+    "professional": "전문 설치",
+    "enterprise": "기업 설치",
+    "orderCreated": "설치 주문이 생성되었습니다",
+    "dispatching": "엔지니어를 찾고 있습니다...",
+    "inProgress": "설치 진행 중",
+    "pendingAcceptance": "검수를 기다리고 있습니다"
+  },
+  "notification": {
+    "orderConfirmed": "주문이 확인되었습니다",
+    "paymentReceived": "결제가 완료되었습니다",
+    "engineerAssigned": "엔지니어가 배정되었습니다",
+    "serviceCompleted": "서비스가 완료되었습니다. 리뷰를 남겨주세요",
+    "ticketUpdated": "티켓이 업데이트되었습니다",
+    "subscriptionRenewal": "구독 갱신 알림"
+  }
+}

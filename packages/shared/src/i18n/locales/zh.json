@@ -1,0 +1,47 @@
+{
+  "common": {
+    "welcome": "欢迎来到 OpenClaw Club",
+    "login": "登录",
+    "register": "注册",
+    "logout": "退出登录",
+    "submit": "提交",
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "search": "搜索",
+    "loading": "加载中...",
+    "error": "发生错误",
+    "success": "操作成功",
+    "back": "返回",
+    "next": "下一步"
+  },
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "subscriptions": "订阅",
+    "tokenHub": "Token Hub",
+    "training": "培训认证",
+    "hardware": "硬件商城",
+    "support": "客户支持",
+    "profile": "个人中心"
+  },
+  "install": {
+    "standard": "标准安装包",
+    "professional": "专业安装包",
+    "enterprise": "企业安装包",
+    "orderCreated": "安装订单已创建",
+    "dispatching": "正在匹配工程师...",
+    "inProgress": "安装服务进行中",
+    "pendingAcceptance": "等待您的验收确认"
+  },
+  "notification": {
+    "orderConfirmed": "您的订单已确认",
+    "paymentReceived": "支付已到账",
+    "engineerAssigned": "工程师已分配",
+    "serviceCompleted": "服务已完成，请评价",
+    "ticketUpdated": "您的工单已更新",
+    "subscriptionRenewal": "订阅续费提醒"
+  }
+}

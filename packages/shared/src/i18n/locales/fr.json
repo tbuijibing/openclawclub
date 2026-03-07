@@ -1,0 +1,47 @@
+{
+  "common": {
+    "welcome": "Bienvenue sur OpenClaw Club",
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "logout": "Se déconnecter",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "search": "Rechercher",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "success": "Opération réussie",
+    "back": "Retour",
+    "next": "Suivant"
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "subscriptions": "Abonnements",
+    "tokenHub": "Token Hub",
+    "training": "Formation",
+    "hardware": "Boutique matériel",
+    "support": "Support",
+    "profile": "Profil"
+  },
+  "install": {
+    "standard": "Installation standard",
+    "professional": "Installation professionnelle",
+    "enterprise": "Installation entreprise",
+    "orderCreated": "Commande d'installation créée",
+    "dispatching": "Recherche d'un technicien...",
+    "inProgress": "Installation en cours",
+    "pendingAcceptance": "En attente de votre validation"
+  },
+  "notification": {
+    "orderConfirmed": "Votre commande a été confirmée",
+    "paymentReceived": "Paiement reçu",
+    "engineerAssigned": "Un technicien a été assigné",
+    "serviceCompleted": "Service terminé, veuillez évaluer",
+    "ticketUpdated": "Votre ticket a été mis à jour",
+    "subscriptionRenewal": "Rappel de renouvellement d'abonnement"
+  }
+}

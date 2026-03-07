@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.env
+.env.*
+!.env.example
+payload-3.79.0/
+SaaS-Boilerplate-1.7.7/

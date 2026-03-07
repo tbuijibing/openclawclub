@@ -1,0 +1,88 @@
+{
+  "common": {
+    "login": "Anmelden",
+    "register": "Registrieren",
+    "logout": "Abmelden",
+    "home": "Startseite",
+    "products": "Produkte",
+    "orders": "Bestellungen",
+    "settings": "Einstellungen",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "loading": "Laden...",
+    "error": "Ein Fehler ist aufgetreten",
+    "success": "Vorgang erfolgreich"
+  },
+  "nav": {
+    "home": "Startseite",
+    "products": "Produktkatalog",
+    "orders": "Meine Bestellungen",
+    "engineer": "Ingenieur-Dashboard",
+    "login": "Anmelden",
+    "register": "Registrieren"
+  },
+  "auth": {
+    "loginTitle": "Anmelden",
+    "registerTitle": "Registrieren",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "confirmPassword": "Passwort bestätigen",
+    "loginButton": "Anmelden",
+    "registerButton": "Registrieren",
+    "noAccount": "Noch kein Konto?",
+    "hasAccount": "Bereits ein Konto?"
+  },
+  "products": {
+    "title": "Produktkatalog",
+    "viewDetails": "Details anzeigen",
+    "price": "Preis",
+    "outOfStock": "Nicht vorrätig",
+    "addToOrder": "Zur Bestellung hinzufügen"
+  },
+  "orders": {
+    "title": "Meine Bestellungen",
+    "newOrder": "Neue Bestellung",
+    "orderNumber": "Bestellnummer",
+    "status": "Status",
+    "total": "Gesamtbetrag",
+    "pay": "Bezahlen",
+    "paymentSuccess": "Zahlung erfolgreich",
+    "paymentCancel": "Zahlung abgebrochen"
+  },
+  "engineer": {
+    "title": "Ingenieur-Dashboard",
+    "pendingOrders": "Offene Aufträge",
+    "activeOrders": "Laufende Aufträge",
+    "accept": "Annehmen",
+    "submitReport": "Lieferbericht einreichen"
+  },
+  "review": {
+    "title": "Servicebewertung",
+    "overallRating": "Gesamtbewertung",
+    "attitudeRating": "Einstellungsbewertung",
+    "skillRating": "Fachkompetenz",
+    "comment": "Kommentar",
+    "commentPlaceholder": "Teilen Sie Ihre Erfahrung (optional)",
+    "submitReview": "Bewertung abgeben",
+    "ratingRequired": "Bitte wählen Sie eine Bewertung (1-5)",
+    "submitSuccess": "Bewertung erfolgreich eingereicht!",
+    "submitError": "Bewertung konnte nicht eingereicht werden, bitte versuchen Sie es erneut",
+    "orderLabel": "Bestellnummer"
+  },
+  "theme": {
+    "light": "Heller Modus",
+    "dark": "Dunkler Modus",
+    "toggle": "Design wechseln"
+  },
+  "footer": {
+    "copyright": "© {year} OpenClaw Club. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzrichtlinie",
+    "terms": "Nutzungsbedingungen",
+    "contact": "Kontakt"
+  },
+  "header": {
+    "menu": "Menü",
+    "language": "Sprache"
+  }
+}

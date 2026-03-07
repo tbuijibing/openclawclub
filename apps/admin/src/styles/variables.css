@@ -1,0 +1,32 @@
+/* OpenClaw Club Admin — Design System Variables */
+/* Adapted from the user-facing app for Element Plus admin context */
+
+:root {
+  /* Brand Colors — shared with user app */
+  --oc-primary: #4f46e5;
+  --oc-primary-light: #6366f1;
+  --oc-primary-dark: #4338ca;
+
+  /* Semantic Colors */
+  --oc-success: #059669;
+  --oc-warning: #d97706;
+  --oc-error: #ef4444;
+  --oc-info: #3b82f6;
+
+  /* Admin Layout */
+  --admin-sidebar-width: 220px;
+  --admin-sidebar-collapsed-width: 64px;
+  --admin-header-height: 56px;
+
+  /* Typography */
+  --oc-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+
+  /* Element Plus overrides */
+  --el-color-primary: var(--oc-primary);
+  --el-color-primary-light-3: var(--oc-primary-light);
+  --el-color-primary-dark-2: var(--oc-primary-dark);
+  --el-color-success: var(--oc-success);
+  --el-color-warning: var(--oc-warning);
+  --el-color-danger: var(--oc-error);
+  --el-color-info: var(--oc-info);
+}

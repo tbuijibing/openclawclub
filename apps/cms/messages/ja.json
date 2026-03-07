@@ -1,0 +1,88 @@
+{
+  "common": {
+    "login": "ログイン",
+    "register": "登録",
+    "logout": "ログアウト",
+    "home": "ホーム",
+    "products": "製品",
+    "orders": "注文",
+    "settings": "設定",
+    "submit": "送信",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "success": "操作が成功しました"
+  },
+  "nav": {
+    "home": "ホーム",
+    "products": "製品カタログ",
+    "orders": "マイオーダー",
+    "engineer": "エンジニアダッシュボード",
+    "login": "ログイン",
+    "register": "登録"
+  },
+  "auth": {
+    "loginTitle": "ログイン",
+    "registerTitle": "登録",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "confirmPassword": "パスワード確認",
+    "loginButton": "ログイン",
+    "registerButton": "登録",
+    "noAccount": "アカウントをお持ちでないですか？",
+    "hasAccount": "すでにアカウントをお持ちですか？"
+  },
+  "products": {
+    "title": "製品カタログ",
+    "viewDetails": "詳細を見る",
+    "price": "価格",
+    "outOfStock": "在庫切れ",
+    "addToOrder": "注文に追加"
+  },
+  "orders": {
+    "title": "マイオーダー",
+    "newOrder": "新規注文",
+    "orderNumber": "注文番号",
+    "status": "ステータス",
+    "total": "合計金額",
+    "pay": "支払う",
+    "paymentSuccess": "支払い完了",
+    "paymentCancel": "支払いキャンセル"
+  },
+  "engineer": {
+    "title": "エンジニアダッシュボード",
+    "pendingOrders": "受注待ち",
+    "activeOrders": "進行中",
+    "accept": "受注する",
+    "submitReport": "納品レポートを提出"
+  },
+  "review": {
+    "title": "サービス評価",
+    "overallRating": "総合評価",
+    "attitudeRating": "対応評価",
+    "skillRating": "技術評価",
+    "comment": "コメント",
+    "commentPlaceholder": "サービス体験を共有してください（任意）",
+    "submitReview": "評価を送信",
+    "ratingRequired": "評価を選択してください（1-5）",
+    "submitSuccess": "評価が送信されました！",
+    "submitError": "評価の送信に失敗しました。もう一度お試しください",
+    "orderLabel": "注文番号"
+  },
+  "theme": {
+    "light": "ライトモード",
+    "dark": "ダークモード",
+    "toggle": "テーマ切替"
+  },
+  "footer": {
+    "copyright": "© {year} OpenClaw Club. All rights reserved.",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "contact": "お問い合わせ"
+  },
+  "header": {
+    "menu": "メニュー",
+    "language": "言語"
+  }
+}
