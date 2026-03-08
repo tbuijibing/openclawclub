@@ -1,13 +1,20 @@
 import { getRequestConfig } from 'next-intl/server'
-
-export const locales = ['zh', 'en', 'ja', 'ko', 'de', 'fr', 'es'] as const
-export const defaultLocale = 'zh'
+import { routing, type Locale } from './src/i18n/routing'
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  const locale = (await requestLocale) || defaultLocale
+  let locale = await requestLocale
+
+  // Validate that the incoming locale is supported
+  if (!locale || !routing.locales.includes(locale as Locale)) {
+    locale = routing.defaultLocale
+  }
 
   return {
     locale,
     messages: (await import(`./messages/${locale}.json`)).default,
+    timeZone: 'Asia/Shanghai',
   }
 })
+
+// Re-export for convenience
+export { locales, defaultLocale, type Locale } from './src/i18n/routing'

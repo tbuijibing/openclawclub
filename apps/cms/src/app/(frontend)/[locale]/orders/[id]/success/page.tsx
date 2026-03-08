@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { CheckCircle2 } from 'lucide-react'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -25,7 +25,7 @@ export default function PaymentSuccessPage() {
         </CardContent>
         <CardFooter className="justify-center">
           <Button asChild>
-            <Link href={`/${locale}/orders/${id}`}>{t('viewOrder')}</Link>
+            <Link href={`/orders/${id}`}>{t('viewOrder')}</Link>
           </Button>
         </CardFooter>
       </Card>

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -43,7 +43,7 @@ export function ProductCard({
         <span className="text-lg font-bold">
           ${price.toFixed(2)}
         </span>
-        <Link href={`/${locale}/products/${id}`}>
+        <Link href={`/products/${id}`}>
           <Button size="sm">{translations.viewDetails}</Button>
         </Link>
       </CardFooter>

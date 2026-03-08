@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -112,7 +112,7 @@ export default function NewOrderPage() {
         throw new Error(data?.errors?.[0]?.message || 'Failed to create order')
       }
       const order = await res.json()
-      router.push(`/${locale}/orders/${order.doc.id}`)
+      router.push(`/orders/${order.doc.id}`)
     } catch (err: any) {
       setError(err.message || tCommon('error'))
     }

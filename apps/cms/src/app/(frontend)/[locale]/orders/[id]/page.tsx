@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
-import Link from 'next/link'
-import { useLocale, useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
+import { useLocale, useTranslations, Messages } from 'next-intl'
 import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -99,13 +99,13 @@ export default function OrderDetailPage() {
     )
   }
 
-  const statusKey = `status${order.status.split('_').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('')}` as keyof IntlMessages['orders']
+  const statusKey = `status${order.status.split('_').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('')}` as string
   const productName = typeof order.product === 'object' && order.product ? order.product.name : '-'
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
       <Link
-        href={`/${locale}/orders`}
+        href="/orders"
         className="mb-4 inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="mr-1 h-4 w-4" />

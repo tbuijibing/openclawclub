@@ -83,6 +83,7 @@
   },
   "header": {
     "menu": "메뉴",
-    "language": "언어"
+    "language": "언어",
+    "timezone": "시간대"
   }
 }

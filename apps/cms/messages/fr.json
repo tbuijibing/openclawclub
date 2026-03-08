@@ -83,6 +83,7 @@
   },
   "header": {
     "menu": "Menu",
-    "language": "Langue"
+    "language": "Langue",
+    "timezone": "Fuseau horaire"
   }
 }

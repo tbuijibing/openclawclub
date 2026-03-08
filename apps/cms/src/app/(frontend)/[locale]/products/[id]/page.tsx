@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { Badge } from '@/components/ui/badge'
@@ -52,7 +52,7 @@ export default async function ProductDetailPage({
   return (
     <div className="mx-auto max-w-4xl px-4 py-8">
       <Link
-        href={`/${locale}/products`}
+        href="/products"
         className="mb-6 inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
       >
         ← {t('backToProducts')}
@@ -90,7 +90,7 @@ export default async function ProductDetailPage({
         )}
 
         <div className="flex gap-3">
-          <Link href={`/${locale}/orders/new?product=${product.id}`}>
+          <Link href={`/orders/new?product=${product.id}`}>
             <Button size="lg">{t('addToOrder')}</Button>
           </Link>
         </div>

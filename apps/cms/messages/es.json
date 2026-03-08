@@ -83,6 +83,7 @@
   },
   "header": {
     "menu": "Menú",
-    "language": "Idioma"
+    "language": "Idioma",
+    "timezone": "Zona horaria"
   }
 }

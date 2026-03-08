@@ -193,6 +193,7 @@
   },
   "header": {
     "menu": "菜单",
-    "language": "语言"
+    "language": "语言",
+    "timezone": "时区"
   }
 }

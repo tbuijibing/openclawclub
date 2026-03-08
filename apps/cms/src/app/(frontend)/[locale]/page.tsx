@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { Shield, Globe, CreditCard } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -48,10 +48,10 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         <p className="text-xl text-muted-foreground">{t('heroSubtitle')}</p>
         <p className="max-w-2xl text-muted-foreground">{t('heroDescription')}</p>
         <div className="mt-4 flex gap-3">
-          <Link href={`/${locale}/auth/register`}>
+          <Link href="/auth/register">
             <Button size="lg">{t('getStarted')}</Button>
           </Link>
-          <Link href={`/${locale}/products`}>
+          <Link href="/products">
             <Button variant="outline" size="lg">{t('browseProducts')}</Button>
           </Link>
         </div>
@@ -84,7 +84,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <h2 className="text-2xl font-bold">{t('featuredProducts')}</h2>
             <p className="text-sm text-muted-foreground">{t('featuredDescription')}</p>
           </div>
-          <Link href={`/${locale}/products`}>
+          <Link href="/products">
             <Button variant="ghost">{t('viewAll')} →</Button>
           </Link>
         </div>
@@ -94,7 +94,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product) => (
-              <Link key={product.id} href={`/${locale}/products/${product.id}`}>
+              <Link key={product.id} href={`/products/${product.id}`}>
                 <Card className="h-full transition-shadow hover:shadow-md">
                   <CardHeader>
                     <Badge variant="secondary" className="w-fit">{product.category}</Badge>

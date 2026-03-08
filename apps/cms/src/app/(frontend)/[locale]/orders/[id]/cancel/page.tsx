@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { XCircle } from 'lucide-react'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -25,10 +25,10 @@ export default function PaymentCancelPage() {
         </CardContent>
         <CardFooter className="flex-col gap-2 sm:flex-row sm:justify-center">
           <Button asChild>
-            <Link href={`/${locale}/orders/${id}`}>{t('retryPayment')}</Link>
+            <Link href={`/orders/${id}`}>{t('retryPayment')}</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href={`/${locale}/orders`}>{t('backToOrders')}</Link>
+            <Link href="/orders">{t('backToOrders')}</Link>
           </Button>
         </CardFooter>
       </Card>

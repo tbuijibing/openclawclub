@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -199,7 +200,7 @@ export default function EngineerOrdersPage() {
                       size="sm"
                       variant="outline"
                       onClick={() =>
-                        router.push(`/${locale}/engineer/orders/${getOrderId(io.order)}/report`)
+                        router.push(`/engineer/orders/${getOrderId(io.order)}/report`)
                       }
                     >
                       {t('submitReport')}

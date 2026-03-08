@@ -193,6 +193,7 @@
   },
   "header": {
     "menu": "Menu",
-    "language": "Language"
+    "language": "Language",
+    "timezone": "Timezone"
   }
 }

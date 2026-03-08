@@ -4,8 +4,9 @@ import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useRouter, useParams } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import { useState } from 'react'
+import { useRouter } from '@/i18n/navigation'
 import { Star } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -21,21 +22,9 @@ import {
 function useReviewSchema() {
   const t = useTranslations('review')
   return z.object({
-    overallRating: z.coerce
-      .number()
-      .int()
-      .min(1, t('ratingRequired'))
-      .max(5, t('ratingRequired')),
-    attitudeRating: z.coerce
-      .number()
-      .int()
-      .min(1, t('ratingRequired'))
-      .max(5, t('ratingRequired')),
-    skillRating: z.coerce
-      .number()
-      .int()
-      .min(1, t('ratingRequired'))
-      .max(5, t('ratingRequired')),
+    overallRating: z.number().int().min(1, t('ratingRequired')).max(5, t('ratingRequired')),
+    attitudeRating: z.number().int().min(1, t('ratingRequired')).max(5, t('ratingRequired')),
+    skillRating: z.number().int().min(1, t('ratingRequired')).max(5, t('ratingRequired')),
     comment: z.string().optional(),
   })
 }
@@ -117,13 +106,13 @@ export default function ReviewPage() {
       // Get current user
       const meRes = await fetch('/api/users/me', { credentials: 'include' })
       if (!meRes.ok) {
-        router.push(`/${locale}/auth/login`)
+        router.push(`/auth/login`)
         return
       }
       const meData = await meRes.json()
       const userId = meData.user?.id
       if (!userId) {
-        router.push(`/${locale}/auth/login`)
+        router.push(`/auth/login`)
         return
       }
 
@@ -148,7 +137,7 @@ export default function ReviewPage() {
 
       setSuccess(true)
       setTimeout(() => {
-        router.push(`/${locale}/orders/${orderId}`)
+        router.push(`/orders/${orderId}`)
       }, 1500)
     } catch (err) {
       setError(err instanceof Error ? err.message : t('submitError'))

@@ -4,9 +4,8 @@ import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useRouter, useParams } from 'next/navigation'
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link, useRouter } from '@/i18n/navigation'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -25,8 +24,6 @@ type LoginFormValues = z.infer<ReturnType<typeof useLoginSchema>>
 export default function LoginPage() {
   const t = useTranslations('auth')
   const router = useRouter()
-  const params = useParams()
-  const locale = params.locale as string
   const [error, setError] = useState('')
 
   const schema = useLoginSchema()
@@ -55,8 +52,8 @@ export default function LoginPage() {
         throw new Error(t('loginError'))
       }
 
-      router.push(`/${locale}`)
-      router.refresh()
+      router.push(`/`)
+      window.location.reload()
     } catch (err) {
       setError(err instanceof Error ? err.message : t('loginError'))
     }
@@ -69,7 +66,7 @@ export default function LoginPage() {
           <CardTitle className="text-2xl">{t('loginTitle')}</CardTitle>
           <CardDescription>
             {t('noAccount')}{' '}
-            <Link href={`/${locale}/auth/register`} className="text-primary underline-offset-4 hover:underline">
+            <Link href="/auth/register" className="text-primary underline-offset-4 hover:underline">
               {t('registerButton')}
             </Link>
           </CardDescription>

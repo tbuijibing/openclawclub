@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation'
 import { useForm, useFieldArray } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -114,7 +114,7 @@ export default function DeliveryReportPage() {
         <Card>
           <CardContent className="py-10">
             <p className="mb-4 text-lg font-semibold text-green-600">{t('submitSuccess')}</p>
-            <Link href={`/${locale}/engineer/orders`}>
+            <Link href="/engineer/orders">
               <Button variant="outline">{t('backToOrders')}</Button>
             </Link>
           </CardContent>
@@ -127,7 +127,7 @@ export default function DeliveryReportPage() {
     <div className="mx-auto max-w-2xl px-4 py-8">
       <div className="mb-6">
         <Link
-          href={`/${locale}/engineer/orders`}
+          href="/engineer/orders"
           className="text-sm text-muted-foreground hover:text-foreground"
         >
           ← {t('backToOrders')}
