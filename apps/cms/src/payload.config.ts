@@ -54,15 +54,7 @@ export default buildConfig({
     fallbackLanguage: 'zh',
   },
   localization: {
-    locales: [
-      { label: '中文', code: 'zh' },
-      { label: 'English', code: 'en' },
-      { label: '日本語', code: 'ja' },
-      { label: '한국어', code: 'ko' },
-      { label: 'Deutsch', code: 'de' },
-      { label: 'Français', code: 'fr' },
-      { label: 'Español', code: 'es' },
-    ],
+    locales: ['zh', 'en', 'ja', 'ko', 'de', 'fr', 'es'],
     defaultLocale: 'zh',
     fallbackLocale: 'en',
   },

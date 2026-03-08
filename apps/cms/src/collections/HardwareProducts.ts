@@ -30,7 +30,7 @@ export const HardwareProducts: CollectionConfig = {
     { name: 'description', type: 'textarea', required: true, localized: true },
     { name: 'specs', type: 'json', required: true, localized: true },
     { name: 'price', type: 'number', required: true, min: 0 },
-    { name: 'stockByRegion', type: 'json', dbName: 'stock_by_region' },
-    { name: 'isActive', type: 'checkbox', defaultValue: true, dbName: 'is_active' },
+    { name: 'stockByRegion', type: 'json' },
+    { name: 'isActive', type: 'checkbox', defaultValue: true },
   ],
 }

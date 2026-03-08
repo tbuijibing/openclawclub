@@ -29,7 +29,7 @@ export function OrderCard({ id, orderNumber, status, totalAmount, currency, crea
   const t = useTranslations('orders')
   const locale = useLocale()
 
-  const statusKey = `status${status.split('_').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('')}` as keyof Messages['orders']
+  const statusKey = `status${status.split('_').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('')}` as keyof Messages['orders'] & string
   const statusLabel = t(statusKey)
 
   return (

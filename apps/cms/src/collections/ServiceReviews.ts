@@ -26,10 +26,9 @@ export const ServiceReviews: CollectionConfig = {
       required: true,
       min: 1,
       max: 5,
-      dbName: 'overall_rating',
     },
-    { name: 'attitudeRating', type: 'number', min: 1, max: 5, dbName: 'attitude_rating' },
-    { name: 'skillRating', type: 'number', min: 1, max: 5, dbName: 'skill_rating' },
+    { name: 'attitudeRating', type: 'number', min: 1, max: 5 },
+    { name: 'skillRating', type: 'number', min: 1, max: 5 },
     { name: 'comment', type: 'textarea' },
   ],
 }

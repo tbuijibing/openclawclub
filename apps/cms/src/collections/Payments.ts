@@ -28,7 +28,7 @@ export const Payments: CollectionConfig = {
       defaultValue: 'pending',
       options: ['pending', 'succeeded', 'failed', 'refunded'],
     },
-    { name: 'stripeSessionId', type: 'text', dbName: 'stripe_session_id' },
-    { name: 'stripePaymentIntentId', type: 'text', dbName: 'stripe_payment_intent_id' },
+    { name: 'stripeSessionId', type: 'text' },
+    { name: 'stripePaymentIntentId', type: 'text' },
   ],
 }

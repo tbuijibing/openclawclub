@@ -24,11 +24,10 @@ export const DeliveryReports: CollectionConfig = {
       type: 'relationship',
       relationTo: 'install-orders',
       required: true,
-      dbName: 'install_order_id',
     },
     { name: 'checklist', type: 'json', required: true },
-    { name: 'configItems', type: 'json', required: true, dbName: 'config_items' },
-    { name: 'testResults', type: 'json', required: true, dbName: 'test_results' },
+    { name: 'configItems', type: 'json', required: true },
+    { name: 'testResults', type: 'json', required: true },
     {
       name: 'screenshots',
       type: 'array',

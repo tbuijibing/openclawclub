@@ -14,7 +14,7 @@ export const InstallOrders: CollectionConfig = {
       if (!user) return false
       if (user.role === 'admin') return true
       if (user.role === 'certified_engineer') return { engineer: { equals: user.id } }
-      return { 'order.user': { equals: user.id } }
+      return { 'order.user': { equals: user.id } } as any
     },
     update: ({ req: { user } }) => {
       if (!user) return false
@@ -34,7 +34,6 @@ export const InstallOrders: CollectionConfig = {
       type: 'select',
       required: true,
       options: ['standard', 'professional', 'enterprise'],
-      dbName: 'service_tier',
     },
     {
       name: 'ocsasLevel',
@@ -43,7 +42,6 @@ export const InstallOrders: CollectionConfig = {
       defaultValue: 1,
       min: 1,
       max: 3,
-      dbName: 'ocsas_level',
     },
     { name: 'engineer', type: 'relationship', relationTo: 'users' },
     {
@@ -58,18 +56,15 @@ export const InstallOrders: CollectionConfig = {
         'pending_acceptance',
         'completed',
       ],
-      dbName: 'install_status',
     },
     {
       name: 'acceptedAt',
       type: 'date',
-      dbName: 'accepted_at',
       admin: { date: { pickerAppearance: 'dayAndTime' } },
     },
     {
       name: 'completedAt',
       type: 'date',
-      dbName: 'completed_at',
       admin: { date: { pickerAppearance: 'dayAndTime' } },
     },
   ],

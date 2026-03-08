@@ -42,9 +42,10 @@ export async function POST(req: NextRequest) {
           },
           overrideAccess: true,
         })
+        const orderId = typeof payment.order === 'number' ? payment.order : payment.order.id
         await payload.update({
           collection: 'orders',
-          id: payment.order as string,
+          id: orderId,
           data: { status: 'paid' },
           overrideAccess: true,
         })

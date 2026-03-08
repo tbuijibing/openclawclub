@@ -28,7 +28,6 @@ export const Users: CollectionConfig = {
       name: 'displayName',
       type: 'text',
       maxLength: 100,
-      dbName: 'display_name',
     },
     {
       name: 'avatarUrl',
@@ -40,7 +39,6 @@ export const Users: CollectionConfig = {
       type: 'select',
       defaultValue: 'zh',
       options: ['zh', 'en', 'ja', 'ko', 'de', 'fr', 'es'],
-      dbName: 'language_preference',
     },
     {
       name: 'timezone',
@@ -61,7 +59,7 @@ export const Users: CollectionConfig = {
       type: 'select',
       required: true,
       defaultValue: 'individual_user',
-      access: { update: isAdmin },
+      access: { update: ({ req: { user } }) => user?.role === 'admin' },
       options: [
         { label: '管理员', value: 'admin' },
         { label: '认证工程师', value: 'certified_engineer' },

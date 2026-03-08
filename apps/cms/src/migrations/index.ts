@@ -1,5 +1,5 @@
 import * as migration_20260307_224735 from './20260307_224735';
-import * as migration_migrate-from-typeorm from './migrate-from-typeorm';
+import * as migration_migrate_from_typeorm from './migrate-from-typeorm';
 
 export const migrations = [
   {
@@ -8,8 +8,8 @@ export const migrations = [
     name: '20260307_224735',
   },
   {
-    up: migration_migrate-from-typeorm.up,
-    down: migration_migrate-from-typeorm.down,
+    up: migration_migrate_from_typeorm.up,
+    down: migration_migrate_from_typeorm.down,
     name: 'migrate-from-typeorm'
   },
 ];
