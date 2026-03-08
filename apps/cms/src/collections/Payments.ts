@@ -3,8 +3,12 @@ import { isAdmin } from '../access/isAdmin'
 
 export const Payments: CollectionConfig = {
   slug: 'payments',
+  labels: {
+    singular: { zh: '支付记录', en: 'Payment', ja: '支払い', ko: '결제', de: 'Zahlung', fr: 'Paiement', es: 'Pago' },
+    plural: { zh: '支付记录', en: 'Payments', ja: '支払い', ko: '결제', de: 'Zahlungen', fr: 'Paiements', es: 'Pagos' },
+  },
   admin: {
-    group: '订单管理',
+    group: { zh: '订单管理', en: 'Order Management', ja: '注文管理', ko: '주문 관리', de: 'Auftragsverwaltung', fr: 'Gestion des commandes', es: 'Gestión de pedidos' },
     defaultColumns: ['order', 'amount', 'status', 'createdAt'],
   },
   access: {

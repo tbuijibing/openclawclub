@@ -3,7 +3,8 @@ import { isAdmin } from '../access/isAdmin'
 
 export const OcsasStandards: GlobalConfig = {
   slug: 'ocsas-standards',
-  admin: { group: '系统管理' },
+  label: { zh: 'OCSAS 标准', en: 'OCSAS Standards', ja: 'OCSAS基準', ko: 'OCSAS 기준', de: 'OCSAS-Standards', fr: 'Normes OCSAS', es: 'Estándares OCSAS' },
+  admin: { group: { zh: '系统管理', en: 'System Management', ja: 'システム管理', ko: '시스템 관리', de: 'Systemverwaltung', fr: 'Gestion du système', es: 'Gestión del sistema' } },
   access: { read: () => true, update: isAdmin },
   fields: [
     {

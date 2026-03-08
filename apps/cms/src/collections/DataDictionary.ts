@@ -3,9 +3,13 @@ import { isAdmin } from '../access/isAdmin'
 
 export const DataDictionary: CollectionConfig = {
   slug: 'data-dictionary',
+  labels: {
+    singular: { zh: '数据字典', en: 'Data Dictionary', ja: 'データ辞書', ko: '데이터 사전', de: 'Datenwörterbuch', fr: 'Dictionnaire de données', es: 'Diccionario de datos' },
+    plural: { zh: '数据字典', en: 'Data Dictionary', ja: 'データ辞書', ko: '데이터 사전', de: 'Datenwörterbuch', fr: 'Dictionnaire de données', es: 'Diccionario de datos' },
+  },
   admin: {
     useAsTitle: 'tableName',
-    group: '字典管理',
+    group: { zh: '字典管理', en: 'Dictionary Management', ja: '辞書管理', ko: '사전 관리', de: 'Wörterbuchverwaltung', fr: 'Gestion des dictionnaires', es: 'Gestión de diccionarios' },
     defaultColumns: ['tableName', 'fieldName', 'fieldType', 'isRequired'],
     listSearchableFields: ['tableName', 'fieldName'],
   },

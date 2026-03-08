@@ -8,6 +8,7 @@ import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { useTimezone } from '@/providers/TimezoneProvider'
 
 const statusVariantMap: Record<string, 'default' | 'secondary' | 'destructive' | 'outline'> = {
   pending_payment: 'outline',
@@ -37,6 +38,7 @@ export default function OrderDetailPage() {
   const locale = useLocale()
   const params = useParams()
   const orderId = params.id as string
+  const { formatDate } = useTimezone()
 
   const [order, setOrder] = useState<Order | null>(null)
   const [loading, setLoading] = useState(true)
@@ -125,7 +127,7 @@ export default function OrderDetailPage() {
           <Row label={t('serviceTier')} value={order.serviceTier ? t(order.serviceTier as any) : '-'} />
           <Row label={t('region')} value={order.region ? t(`region${order.region.charAt(0).toUpperCase() + order.region.slice(1)}` as any) : '-'} />
           <Row label={t('total')} value={`${order.currency} ${order.totalAmount.toFixed(2)}`} />
-          <Row label={t('createdAt')} value={new Date(order.createdAt).toLocaleString(locale)} />
+          <Row label={t('createdAt')} value={formatDate(order.createdAt)} />
 
           {error && <p className="text-sm text-destructive">{error}</p>}
 

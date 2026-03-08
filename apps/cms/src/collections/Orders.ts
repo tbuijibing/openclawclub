@@ -5,9 +5,13 @@ import { createInstallOrder } from '../hooks/createInstallOrder'
 
 export const Orders: CollectionConfig = {
   slug: 'orders',
+  labels: {
+    singular: { zh: '订单', en: 'Order', ja: '注文', ko: '주문', de: 'Bestellung', fr: 'Commande', es: 'Pedido' },
+    plural: { zh: '订单', en: 'Orders', ja: '注文', ko: '주문', de: 'Bestellungen', fr: 'Commandes', es: 'Pedidos' },
+  },
   admin: {
     useAsTitle: 'orderNumber',
-    group: '订单管理',
+    group: { zh: '订单管理', en: 'Order Management', ja: '注文管理', ko: '주문 관리', de: 'Auftragsverwaltung', fr: 'Gestion des commandes', es: 'Gestión de pedidos' },
     defaultColumns: ['orderNumber', 'user', 'status', 'totalAmount', 'createdAt'],
     listSearchableFields: ['orderNumber'],
   },

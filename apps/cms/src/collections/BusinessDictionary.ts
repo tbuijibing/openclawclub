@@ -3,9 +3,13 @@ import { isAdmin } from '../access/isAdmin'
 
 export const BusinessDictionary: CollectionConfig = {
   slug: 'business-dictionary',
+  labels: {
+    singular: { zh: '业务字典', en: 'Business Dictionary', ja: 'ビジネス辞書', ko: '비즈니스 사전', de: 'Geschäftswörterbuch', fr: 'Dictionnaire métier', es: 'Diccionario de negocio' },
+    plural: { zh: '业务字典', en: 'Business Dictionary', ja: 'ビジネス辞書', ko: '비즈니스 사전', de: 'Geschäftswörterbuch', fr: 'Dictionnaire métier', es: 'Diccionario de negocio' },
+  },
   admin: {
     useAsTitle: 'key',
-    group: '字典管理',
+    group: { zh: '字典管理', en: 'Dictionary Management', ja: '辞書管理', ko: '사전 관리', de: 'Wörterbuchverwaltung', fr: 'Gestion des dictionnaires', es: 'Gestión de diccionarios' },
     defaultColumns: ['key', 'category', 'label', 'isActive', 'sortOrder'],
     listSearchableFields: ['key', 'label'],
   },

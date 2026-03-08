@@ -87,7 +87,7 @@ export default function NewOrderPage() {
     load()
   }, [locale])
 
-  const productPrice = products.find((p) => p.id === selectedProduct)?.price ?? 0
+  const productPrice = products.find((p) => String(p.id) === selectedProduct)?.price ?? 0
   const tierPrice = pricing?.installationPricing?.[selectedTier as keyof PricingConfig['installationPricing']] ?? 0
   const totalAmount = productPrice + tierPrice
 
@@ -99,7 +99,7 @@ export default function NewOrderPage() {
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({
-          product: values.product,
+          product: Number(values.product),
           serviceTier: values.serviceTier,
           region: values.region,
           totalAmount,
@@ -137,7 +137,7 @@ export default function NewOrderPage() {
                 </SelectTrigger>
                 <SelectContent>
                   {products.map((p) => (
-                    <SelectItem key={p.id} value={p.id}>
+                    <SelectItem key={p.id} value={String(p.id)}>
                       {p.name} — ${p.price}
                     </SelectItem>
                   ))}

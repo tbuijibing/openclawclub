@@ -6,6 +6,7 @@ import { Globe, Menu, X, Clock, LogOut, User } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { Link, useRouter, usePathname } from '@/i18n/navigation'
+import { useTimezone } from '@/providers/TimezoneProvider'
 
 const localeLabels: Record<string, string> = {
   zh: '中文',
@@ -41,6 +42,7 @@ export function Header() {
   const [langOpen, setLangOpen] = useState(false)
   const [tzOpen, setTzOpen] = useState(false)
   const [user, setUser] = useState<{ id: number; displayName?: string; role?: string } | null>(null)
+  const { timezone: currentTz, setTimezone } = useTimezone()
 
   useEffect(() => {
     fetch('/api/users/me', { credentials: 'include' })
@@ -57,13 +59,6 @@ export function Header() {
     window.location.href = `/${locale}`
   }
 
-  const [currentTz, setCurrentTz] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('timezone') || Intl.DateTimeFormat().resolvedOptions().timeZone
-    }
-    return 'Asia/Shanghai'
-  })
-
   const navLinks = [
     { href: '/' as const, label: t('home') },
     { href: '/products' as const, label: t('products') },
@@ -76,12 +71,8 @@ export function Header() {
   }
 
   const switchTimezone = (tz: string) => {
-    setCurrentTz(tz)
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('timezone', tz)
-    }
+    setTimezone(tz)
     setTzOpen(false)
-    router.refresh()
   }
 
   return (

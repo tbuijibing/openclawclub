@@ -4,8 +4,12 @@ import { writeAuditLog } from '../hooks/writeAuditLog'
 
 export const InstallOrders: CollectionConfig = {
   slug: 'install-orders',
+  labels: {
+    singular: { zh: '安装工单', en: 'Install Order', ja: '設置工事', ko: '설치 주문', de: 'Installationsauftrag', fr: "Ordre d'installation", es: 'Orden de instalación' },
+    plural: { zh: '安装工单', en: 'Install Orders', ja: '設置工事', ko: '설치 주문', de: 'Installationsaufträge', fr: "Ordres d'installation", es: 'Órdenes de instalación' },
+  },
   admin: {
-    group: '订单管理',
+    group: { zh: '订单管理', en: 'Order Management', ja: '注文管理', ko: '주문 관리', de: 'Auftragsverwaltung', fr: 'Gestion des commandes', es: 'Gestión de pedidos' },
     defaultColumns: ['order', 'serviceTier', 'installStatus', 'engineer', 'createdAt'],
   },
   access: {

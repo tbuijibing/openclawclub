@@ -28,6 +28,7 @@ import { DataDictionary } from './collections/DataDictionary'
 import { SiteSettings } from './globals/SiteSettings'
 import { PricingConfig } from './globals/PricingConfig'
 import { OcsasStandards } from './globals/OcsasStandards'
+import { adminTranslations } from './i18n/admin-translations'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -63,6 +64,7 @@ export default buildConfig({
   i18n: {
     fallbackLanguage: 'zh',
     supportedLanguages: { zh, en, ja, ko, de, fr, es },
+    translations: adminTranslations,
   },
   localization: {
     locales: [

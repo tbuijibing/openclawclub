@@ -3,9 +3,13 @@ import { isAdmin } from '../access/isAdmin'
 
 export const HardwareProducts: CollectionConfig = {
   slug: 'hardware-products',
+  labels: {
+    singular: { zh: '硬件产品', en: 'Hardware Product', ja: 'ハードウェア製品', ko: '하드웨어 제품', de: 'Hardwareprodukt', fr: 'Produit matériel', es: 'Producto de hardware' },
+    plural: { zh: '硬件产品', en: 'Hardware Products', ja: 'ハードウェア製品', ko: '하드웨어 제품', de: 'Hardwareprodukte', fr: 'Produits matériels', es: 'Productos de hardware' },
+  },
   admin: {
     useAsTitle: 'name',
-    group: '产品管理',
+    group: { zh: '产品管理', en: 'Product Management', ja: '製品管理', ko: '제품 관리', de: 'Produktverwaltung', fr: 'Gestion des produits', es: 'Gestión de productos' },
   },
   access: {
     create: isAdmin,

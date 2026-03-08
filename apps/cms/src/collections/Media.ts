@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
   slug: 'media',
+  labels: {
+    singular: { zh: '媒体文件', en: 'Media', ja: 'メディア', ko: '미디어', de: 'Medien', fr: 'Média', es: 'Medio' },
+    plural: { zh: '媒体文件', en: 'Media', ja: 'メディア', ko: '미디어', de: 'Medien', fr: 'Médias', es: 'Medios' },
+  },
   upload: {
     mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/svg+xml'],
     staticDir: 'media',

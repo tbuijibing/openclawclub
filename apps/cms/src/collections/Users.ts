@@ -5,12 +5,16 @@ import { writeAuditLog } from '../hooks/writeAuditLog'
 
 export const Users: CollectionConfig = {
   slug: 'users',
+  labels: {
+    singular: { zh: '用户', en: 'User', ja: 'ユーザー', ko: '사용자', de: 'Benutzer', fr: 'Utilisateur', es: 'Usuario' },
+    plural: { zh: '用户', en: 'Users', ja: 'ユーザー', ko: '사용자', de: 'Benutzer', fr: 'Utilisateurs', es: 'Usuarios' },
+  },
   auth: {
     tokenExpiration: 86400,
   },
   admin: {
     useAsTitle: 'displayName',
-    group: '用户管理',
+    group: { zh: '用户管理', en: 'User Management', ja: 'ユーザー管理', ko: '사용자 관리', de: 'Benutzerverwaltung', fr: 'Gestion des utilisateurs', es: 'Gestión de usuarios' },
     listSearchableFields: ['email', 'displayName'],
     defaultColumns: ['displayName', 'email', 'role', 'region'],
   },

@@ -4,7 +4,11 @@ import { updateOrderOnDelivery } from '../hooks/updateOrderOnDelivery'
 
 export const DeliveryReports: CollectionConfig = {
   slug: 'delivery-reports',
-  admin: { group: '订单管理' },
+  labels: {
+    singular: { zh: '交付报告', en: 'Delivery Report', ja: '納品報告', ko: '납품 보고서', de: 'Lieferbericht', fr: 'Rapport de livraison', es: 'Informe de entrega' },
+    plural: { zh: '交付报告', en: 'Delivery Reports', ja: '納品報告', ko: '납품 보고서', de: 'Lieferberichte', fr: 'Rapports de livraison', es: 'Informes de entrega' },
+  },
+  admin: { group: { zh: '订单管理', en: 'Order Management', ja: '注文管理', ko: '주문 관리', de: 'Auftragsverwaltung', fr: 'Gestion des commandes', es: 'Gestión de pedidos' } },
   access: {
     create: ({ req: { user } }) => user?.role === 'admin' || user?.role === 'certified_engineer',
     read: ({ req: { user } }) => {

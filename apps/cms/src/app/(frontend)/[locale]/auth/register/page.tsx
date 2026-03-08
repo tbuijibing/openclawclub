@@ -49,6 +49,7 @@ export default function RegisterPage() {
       const res = await fetch('/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({
           email: data.email,
           password: data.password,
@@ -65,6 +66,7 @@ export default function RegisterPage() {
       const loginRes = await fetch('/api/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({
           email: data.email,
           password: data.password,
