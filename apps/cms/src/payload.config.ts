@@ -5,6 +5,14 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
+import { zh } from 'payload/i18n/zh'
+import { en } from 'payload/i18n/en'
+import { ja } from 'payload/i18n/ja'
+import { ko } from 'payload/i18n/ko'
+import { de } from 'payload/i18n/de'
+import { fr } from 'payload/i18n/fr'
+import { es } from 'payload/i18n/es'
+
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Orders } from './collections/Orders'
@@ -14,6 +22,8 @@ import { DeliveryReports } from './collections/DeliveryReports'
 import { ServiceReviews } from './collections/ServiceReviews'
 import { HardwareProducts } from './collections/HardwareProducts'
 import { AuditLogs } from './collections/AuditLogs'
+import { BusinessDictionary } from './collections/BusinessDictionary'
+import { DataDictionary } from './collections/DataDictionary'
 
 import { SiteSettings } from './globals/SiteSettings'
 import { PricingConfig } from './globals/PricingConfig'
@@ -34,7 +44,7 @@ export default buildConfig({
   collections: [
     Users, Orders, Payments, InstallOrders,
     DeliveryReports, ServiceReviews, HardwareProducts,
-    AuditLogs, Media,
+    AuditLogs, Media, BusinessDictionary, DataDictionary,
   ],
   globals: [SiteSettings, PricingConfig, OcsasStandards],
   editor: lexicalEditor(),
@@ -52,9 +62,18 @@ export default buildConfig({
   }),
   i18n: {
     fallbackLanguage: 'zh',
+    supportedLanguages: { zh, en, ja, ko, de, fr, es },
   },
   localization: {
-    locales: ['zh', 'en', 'ja', 'ko', 'de', 'fr', 'es'],
+    locales: [
+      { label: '中文', code: 'zh' },
+      { label: 'English', code: 'en' },
+      { label: '日本語', code: 'ja' },
+      { label: '한국어', code: 'ko' },
+      { label: 'Deutsch', code: 'de' },
+      { label: 'Français', code: 'fr' },
+      { label: 'Español', code: 'es' },
+    ],
     defaultLocale: 'zh',
     fallback: true,
   },

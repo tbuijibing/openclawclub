@@ -72,10 +72,12 @@ export default function RegisterPage() {
       })
 
       if (loginRes.ok) {
-        router.push(`/`)
-        window.location.reload()
+        const loginResult = await loginRes.json()
+        const locale = window.location.pathname.split('/')[1] || 'zh'
+        window.location.href = `/${locale}/orders`
       } else {
-        router.push(`/auth/login`)
+        const locale = window.location.pathname.split('/')[1] || 'zh'
+        window.location.href = `/${locale}/auth/login`
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : t('registerError'))

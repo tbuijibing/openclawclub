@@ -52,8 +52,26 @@ export default function LoginPage() {
         throw new Error(t('loginError'))
       }
 
-      router.push(`/`)
-      window.location.reload()
+      const result = await res.json()
+      const user = result?.user
+
+      // 根据角色跳转到不同页面
+      let targetPath = '/'
+      if (user?.role === 'admin') {
+        targetPath = '/admin'
+      } else if (user?.role === 'certified_engineer') {
+        targetPath = '/engineer/orders'
+      } else {
+        targetPath = '/orders'
+      }
+
+      // 使用 window.location.href 确保完整页面刷新和 cookie 生效
+      const locale = window.location.pathname.split('/')[1] || 'zh'
+      if (targetPath === '/admin') {
+        window.location.href = targetPath
+      } else {
+        window.location.href = `/${locale}${targetPath}`
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : t('loginError'))
     }

@@ -76,6 +76,8 @@ export interface Config {
     'hardware-products': HardwareProduct;
     'audit-logs': AuditLog;
     media: Media;
+    'business-dictionary': BusinessDictionary;
+    'data-dictionary': DataDictionary;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -92,6 +94,8 @@ export interface Config {
     'hardware-products': HardwareProductsSelect<false> | HardwareProductsSelect<true>;
     'audit-logs': AuditLogsSelect<false> | AuditLogsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'business-dictionary': BusinessDictionarySelect<false> | BusinessDictionarySelect<true>;
+    'data-dictionary': DataDictionarySelect<false> | DataDictionarySelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -375,6 +379,117 @@ export interface AuditLog {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "business-dictionary".
+ */
+export interface BusinessDictionary {
+  id: number;
+  category:
+    | 'order_status'
+    | 'install_status'
+    | 'service_tier'
+    | 'user_role'
+    | 'region'
+    | 'product_category'
+    | 'payment_status'
+    | 'ocsas_level';
+  /**
+   * 唯一标识符，如 order_status.pending_payment
+   */
+  key: string;
+  /**
+   * 显示名称（支持多语言）
+   */
+  label: string;
+  /**
+   * 详细描述（支持多语言）
+   */
+  description?: string | null;
+  /**
+   * 对应的系统值
+   */
+  value?: string | null;
+  sortOrder?: number | null;
+  isActive?: boolean | null;
+  /**
+   * 额外的元数据（如颜色、图标等）
+   */
+  metadata?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "data-dictionary".
+ */
+export interface DataDictionary {
+  id: number;
+  tableName:
+    | 'users'
+    | 'orders'
+    | 'payments'
+    | 'install-orders'
+    | 'delivery-reports'
+    | 'service-reviews'
+    | 'hardware-products'
+    | 'business-dictionary'
+    | 'audit-logs';
+  /**
+   * 字段名称
+   */
+  fieldName: string;
+  /**
+   * 字段显示名（支持多语言）
+   */
+  fieldLabel: string;
+  fieldType: 'text' | 'number' | 'date' | 'boolean' | 'enum' | 'relationship' | 'json' | 'richtext' | 'upload';
+  /**
+   * 字段说明（支持多语言）
+   */
+  fieldDescription?: string | null;
+  isRequired?: boolean | null;
+  /**
+   * 是否支持多语言
+   */
+  isLocalized?: boolean | null;
+  /**
+   * 枚举选项（当字段类型为枚举时）
+   */
+  enumOptions?:
+    | {
+        value: string;
+        label: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * 默认值
+   */
+  defaultValue?: string | null;
+  /**
+   * 验证规则（如 min, max, pattern 等）
+   */
+  validation?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -432,6 +547,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'business-dictionary';
+        value: number | BusinessDictionary;
+      } | null)
+    | ({
+        relationTo: 'data-dictionary';
+        value: number | DataDictionary;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -650,6 +773,46 @@ export interface MediaSelect<T extends boolean = true> {
               filename?: T;
             };
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "business-dictionary_select".
+ */
+export interface BusinessDictionarySelect<T extends boolean = true> {
+  category?: T;
+  key?: T;
+  label?: T;
+  description?: T;
+  value?: T;
+  sortOrder?: T;
+  isActive?: T;
+  metadata?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "data-dictionary_select".
+ */
+export interface DataDictionarySelect<T extends boolean = true> {
+  tableName?: T;
+  fieldName?: T;
+  fieldLabel?: T;
+  fieldType?: T;
+  fieldDescription?: T;
+  isRequired?: T;
+  isLocalized?: T;
+  enumOptions?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  defaultValue?: T;
+  validation?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
