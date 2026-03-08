@@ -20,7 +20,8 @@
     "orders": "Meine Bestellungen",
     "engineer": "Ingenieur-Dashboard",
     "login": "Anmelden",
-    "register": "Registrieren"
+    "register": "Registrieren",
+    "logout": "Abmelden"
   },
   "auth": {
     "loginTitle": "Anmelden",

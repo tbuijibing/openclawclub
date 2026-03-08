@@ -20,7 +20,8 @@
     "orders": "マイオーダー",
     "engineer": "エンジニアダッシュボード",
     "login": "ログイン",
-    "register": "登録"
+    "register": "登録",
+    "logout": "ログアウト"
   },
   "auth": {
     "loginTitle": "ログイン",

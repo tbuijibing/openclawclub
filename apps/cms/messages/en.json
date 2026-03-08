@@ -20,7 +20,8 @@
     "orders": "My Orders",
     "engineer": "Engineer Dashboard",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "logout": "Logout"
   },
   "auth": {
     "loginTitle": "Login",

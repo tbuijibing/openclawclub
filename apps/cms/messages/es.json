@@ -20,7 +20,8 @@
     "orders": "Mis pedidos",
     "engineer": "Panel de ingeniero",
     "login": "Iniciar sesión",
-    "register": "Registrarse"
+    "register": "Registrarse",
+    "logout": "Cerrar sesión"
   },
   "auth": {
     "loginTitle": "Iniciar sesión",

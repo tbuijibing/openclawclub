@@ -20,7 +20,8 @@
     "orders": "Mes commandes",
     "engineer": "Tableau de bord ingénieur",
     "login": "Connexion",
-    "register": "Inscription"
+    "register": "Inscription",
+    "logout": "Déconnexion"
   },
   "auth": {
     "loginTitle": "Connexion",

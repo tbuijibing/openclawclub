@@ -20,7 +20,8 @@
     "orders": "我的订单",
     "engineer": "工程师工作台",
     "login": "登录",
-    "register": "注册"
+    "register": "注册",
+    "logout": "退出登录"
   },
   "auth": {
     "loginTitle": "登录",

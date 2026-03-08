@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
-import { Globe, Menu, X, Clock } from 'lucide-react'
+import { Globe, Menu, X, Clock, LogOut, User } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { Link, useRouter, usePathname } from '@/i18n/navigation'
@@ -40,6 +40,22 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const [tzOpen, setTzOpen] = useState(false)
+  const [user, setUser] = useState<{ id: number; displayName?: string; role?: string } | null>(null)
+
+  useEffect(() => {
+    fetch('/api/users/me', { credentials: 'include' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.user) setUser(data.user)
+      })
+      .catch(() => {})
+  }, [])
+
+  const handleLogout = async () => {
+    await fetch('/api/users/logout', { method: 'POST', credentials: 'include' })
+    setUser(null)
+    window.location.href = `/${locale}`
+  }
 
   const [currentTz, setCurrentTz] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -147,12 +163,24 @@ export function Header() {
 
           <ThemeToggle />
 
-          <Link href="/auth/login">
-            <Button variant="ghost" size="sm">{t('login')}</Button>
-          </Link>
-          <Link href="/auth/register">
-            <Button size="sm">{t('register')}</Button>
-          </Link>
+          {user ? (
+            <>
+              <span className="text-sm text-muted-foreground">{user.displayName || user.role}</span>
+              <Button variant="ghost" size="sm" onClick={handleLogout}>
+                <LogOut className="mr-1 h-4 w-4" />
+                {t('logout')}
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link href="/auth/login">
+                <Button variant="ghost" size="sm">{t('login')}</Button>
+              </Link>
+              <Link href="/auth/register">
+                <Button size="sm">{t('register')}</Button>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile menu button */}
@@ -212,8 +240,20 @@ export function Header() {
               )}
             </div>
             <ThemeToggle />
-            <Link href="/auth/login"><Button variant="ghost" size="sm">{t('login')}</Button></Link>
-            <Link href="/auth/register"><Button size="sm">{t('register')}</Button></Link>
+            {user ? (
+              <>
+                <span className="text-sm text-muted-foreground">{user.displayName || user.role}</span>
+                <Button variant="ghost" size="sm" onClick={handleLogout}>
+                  <LogOut className="mr-1 h-4 w-4" />
+                  {t('logout')}
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link href="/auth/login"><Button variant="ghost" size="sm">{t('login')}</Button></Link>
+                <Link href="/auth/register"><Button size="sm">{t('register')}</Button></Link>
+              </>
+            )}
           </div>
         </div>
       )}
