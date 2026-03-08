@@ -6,9 +6,10 @@ export const completeOrderOnReview: CollectionAfterChangeHook = async ({
   operation,
 }) => {
   if (operation === 'create') {
+    const orderId = typeof doc.order === 'object' ? doc.order.id : doc.order
     await req.payload.update({
       collection: 'orders',
-      id: doc.order as string,
+      id: orderId,
       data: { status: 'completed' },
       overrideAccess: true,
     })

@@ -56,7 +56,7 @@ export default buildConfig({
   localization: {
     locales: ['zh', 'en', 'ja', 'ko', 'de', 'fr', 'es'],
     defaultLocale: 'zh',
-    fallbackLocale: 'en',
+    fallback: true,
   },
   sharp,
   plugins: [],

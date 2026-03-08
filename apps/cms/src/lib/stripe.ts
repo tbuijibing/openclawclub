@@ -1,29 +1,7 @@
-import Stripe from 'stripe'
+// 临时禁用 Stripe 功能
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-02-24.acacia',
-})
+export const stripe = null as any;
 
-export async function createCheckoutSession(params: {
-  orderId: string
-  amount: number
-  currency: string
-  successUrl: string
-  cancelUrl: string
-}) {
-  return stripe.checkout.sessions.create({
-    payment_method_types: ['card'],
-    line_items: [{
-      price_data: {
-        currency: params.currency.toLowerCase(),
-        product_data: { name: `Order ${params.orderId}` },
-        unit_amount: Math.round(params.amount * 100),
-      },
-      quantity: 1,
-    }],
-    mode: 'payment',
-    success_url: params.successUrl,
-    cancel_url: params.cancelUrl,
-    metadata: { orderId: params.orderId },
-  })
+export async function createCheckoutSession(params: any) {
+  return { id: 'test_' + Date.now(), url: '/test' };
 }

@@ -6,9 +6,10 @@ export const updateOrderOnDelivery: CollectionAfterChangeHook = async ({
   operation,
 }) => {
   if (operation === 'create') {
+    const installOrderId = typeof doc.installOrder === 'object' ? doc.installOrder.id : doc.installOrder
     await req.payload.update({
       collection: 'install-orders',
-      id: doc.installOrder as string,
+      id: installOrderId,
       data: { installStatus: 'pending_acceptance' },
       overrideAccess: true,
     })
