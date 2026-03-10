@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Link } from '@/i18n/navigation'
+import { Link, useRouter } from '@/i18n/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -20,11 +20,30 @@ export default function OrdersPage() {
   const t = useTranslations('orders')
   const tCommon = useTranslations('common')
   const locale = useLocale()
+  const router = useRouter()
   const [orders, setOrders] = useState<Order[]>([])
   const [loading, setLoading] = useState(true)
+  const [authChecked, setAuthChecked] = useState(false)
   const [error, setError] = useState('')
 
+  // Auth guard: redirect unauthenticated users to login
   useEffect(() => {
+    fetch('/api/users/me', { credentials: 'include' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!data?.user) {
+          router.replace(`/auth/login?redirect=/orders` as any)
+        } else {
+          setAuthChecked(true)
+        }
+      })
+      .catch(() => {
+        router.replace(`/auth/login?redirect=/orders` as any)
+      })
+  }, [router])
+
+  useEffect(() => {
+    if (!authChecked) return
     async function fetchOrders() {
       try {
         const res = await fetch('/api/orders?sort=-createdAt&depth=0', {
@@ -40,9 +59,9 @@ export default function OrdersPage() {
       }
     }
     fetchOrders()
-  }, [tCommon])
+  }, [authChecked, tCommon])
 
-  if (loading) {
+  if (!authChecked || loading) {
     return (
       <div className="mx-auto max-w-4xl px-4 py-8">
         <p className="text-center text-muted-foreground">{tCommon('loading')}</p>

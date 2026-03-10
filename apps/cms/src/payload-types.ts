@@ -108,8 +108,8 @@ export interface Config {
     | ('false' | 'none' | 'null')
     | false
     | null
-    | ('zh' | 'en' | 'ja' | 'ko' | 'de' | 'fr' | 'es')
-    | ('zh' | 'en' | 'ja' | 'ko' | 'de' | 'fr' | 'es')[];
+    | ('zh' | 'en' | 'ja' | 'ko' | 'de' | 'fr' | 'es' | 'ur' | 'vi' | 'ms')
+    | ('zh' | 'en' | 'ja' | 'ko' | 'de' | 'fr' | 'es' | 'ur' | 'vi' | 'ms')[];
   globals: {
     'site-settings': SiteSetting;
     'pricing-config': PricingConfig;
@@ -120,7 +120,7 @@ export interface Config {
     'pricing-config': PricingConfigSelect<false> | PricingConfigSelect<true>;
     'ocsas-standards': OcsasStandardsSelect<false> | OcsasStandardsSelect<true>;
   };
-  locale: 'zh' | 'en' | 'ja' | 'ko' | 'de' | 'fr' | 'es';
+  locale: 'zh' | 'en' | 'ja' | 'ko' | 'de' | 'fr' | 'es' | 'ur' | 'vi' | 'ms';
   widgets: {
     collections: CollectionsWidget;
   };

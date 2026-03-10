@@ -1,5 +1,6 @@
+import { cookies } from 'next/headers'
 import { getTranslations } from 'next-intl/server'
-import { ProductCard } from '@/components/ProductCard'
+import { ServiceListClient } from '@/components/ServiceListClient'
 
 interface HardwareProduct {
   id: string | number
@@ -9,6 +10,14 @@ interface HardwareProduct {
   category: string
   isActive: boolean
 }
+
+const SERVICE_CATEGORIES = [
+  'clawbox_lite',
+  'clawbox_pro',
+  'clawbox_enterprise',
+  'recommended_hardware',
+  'accessories',
+]
 
 async function getProducts(locale: string): Promise<HardwareProduct[]> {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3000'
@@ -30,19 +39,25 @@ export default async function ProductsPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const t = await getTranslations('products')
+  const t = await getTranslations('services')
   const products = await getProducts(locale)
+
+  const cookieStore = await cookies()
+  const isAuthenticated = !!cookieStore.get('payload-token')
+
+  const categoryLabels: Record<string, string> = {
+    clawbox_lite: t('categories.clawbox_lite'),
+    clawbox_pro: t('categories.clawbox_pro'),
+    clawbox_enterprise: t('categories.clawbox_enterprise'),
+    recommended_hardware: t('categories.recommended_hardware'),
+    accessories: t('categories.accessories'),
+  }
 
   const translations = {
     viewDetails: t('viewDetails'),
     price: t('price'),
-    categories: {
-      clawbox_lite: t('categories.clawbox_lite'),
-      clawbox_pro: t('categories.clawbox_pro'),
-      clawbox_enterprise: t('categories.clawbox_enterprise'),
-      recommended_hardware: t('categories.recommended_hardware'),
-      accessories: t('categories.accessories'),
-    },
+    addToOrder: t('addToOrder'),
+    categories: categoryLabels,
   }
 
   return (
@@ -52,24 +67,15 @@ export default async function ProductsPage({
         <p className="mt-2 text-muted-foreground">{t('subtitle')}</p>
       </div>
 
-      {products.length === 0 ? (
-        <p className="text-center text-muted-foreground py-12">{t('noProducts')}</p>
-      ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              description={product.description}
-              price={product.price}
-              category={product.category}
-              locale={locale}
-              translations={translations}
-            />
-          ))}
-        </div>
-      )}
+      <ServiceListClient
+        services={products}
+        locale={locale}
+        isAuthenticated={isAuthenticated}
+        categories={SERVICE_CATEGORIES}
+        categoryLabels={categoryLabels}
+        translations={translations}
+        noServicesText={t('noServices')}
+      />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTimeZone } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { routing, type Locale } from '@/i18n/routing'
+import { routing, rtlLocales, type Locale } from '@/i18n/routing'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { TimezoneProvider } from '@/providers/TimezoneProvider'
@@ -25,11 +25,12 @@ export default async function FrontendLayout({
 
   const messages = await getMessages()
   const timeZone = await getTimeZone()
+  const dir = (rtlLocales as readonly string[]).includes(locale) ? 'rtl' : 'ltr'
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages} timeZone={timeZone}>
       <TimezoneProvider locale={locale}>
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-screen flex-col" dir={dir}>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

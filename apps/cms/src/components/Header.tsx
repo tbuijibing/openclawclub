@@ -16,6 +16,9 @@ const localeLabels: Record<string, string> = {
   de: 'Deutsch',
   fr: 'Français',
   es: 'Español',
+  ur: 'اردو',
+  vi: 'Tiếng Việt',
+  ms: 'Bahasa Melayu',
 }
 
 const timezones = [
@@ -61,8 +64,8 @@ export function Header() {
 
   const navLinks = [
     { href: '/' as const, label: t('home') },
-    { href: '/products' as const, label: t('products') },
-    { href: '/orders' as const, label: t('orders') },
+    { href: '/products' as const, label: t('services') },
+    ...(user ? [{ href: '/orders' as const, label: t('orders') }] : []),
   ]
 
   const switchLocale = (newLocale: string) => {
@@ -109,12 +112,12 @@ export function Header() {
               <Clock className="h-5 w-5" />
             </Button>
             {tzOpen && (
-              <div className="absolute right-0 top-full mt-1 w-48 rounded-md border bg-popover p-1 shadow-md z-50">
+              <div className="absolute right-0 rtl:right-auto rtl:left-0 top-full mt-1 w-48 rounded-md border bg-popover p-1 shadow-md z-50">
                 {timezones.map((tz) => (
                   <button
                     key={tz.value}
                     onClick={() => switchTimezone(tz.value)}
-                    className={`w-full rounded-sm px-3 py-1.5 text-left text-sm transition-colors hover:bg-accent ${
+                    className={`w-full rounded-sm px-3 py-1.5 text-left rtl:text-right text-sm transition-colors hover:bg-accent ${
                       tz.value === currentTz ? 'font-semibold text-foreground' : 'text-muted-foreground'
                     }`}
                   >
@@ -136,12 +139,12 @@ export function Header() {
               <Globe className="h-5 w-5" />
             </Button>
             {langOpen && (
-              <div className="absolute right-0 top-full mt-1 w-36 rounded-md border bg-popover p-1 shadow-md z-50">
+              <div className="absolute right-0 rtl:right-auto rtl:left-0 top-full mt-1 w-36 rounded-md border bg-popover p-1 shadow-md z-50">
                 {localeList.map((loc) => (
                   <button
                     key={loc}
                     onClick={() => switchLocale(loc)}
-                    className={`w-full rounded-sm px-3 py-1.5 text-left text-sm transition-colors hover:bg-accent ${
+                    className={`w-full rounded-sm px-3 py-1.5 text-left rtl:text-right text-sm transition-colors hover:bg-accent ${
                       loc === locale ? 'font-semibold text-foreground' : 'text-muted-foreground'
                     }`}
                   >
@@ -158,7 +161,7 @@ export function Header() {
             <>
               <span className="text-sm text-muted-foreground">{user.displayName || user.role}</span>
               <Button variant="ghost" size="sm" onClick={handleLogout}>
-                <LogOut className="mr-1 h-4 w-4" />
+                <LogOut className="mr-1 rtl:mr-0 rtl:ml-1 h-4 w-4" />
                 {t('logout')}
               </Button>
             </>
@@ -207,9 +210,9 @@ export function Header() {
                 <Clock className="h-5 w-5" />
               </Button>
               {tzOpen && (
-                <div className="absolute left-0 top-full mt-1 w-48 rounded-md border bg-popover p-1 shadow-md z-50">
+                <div className="absolute left-0 rtl:left-auto rtl:right-0 top-full mt-1 w-48 rounded-md border bg-popover p-1 shadow-md z-50">
                   {timezones.map((tz) => (
-                    <button key={tz.value} onClick={() => switchTimezone(tz.value)} className={`w-full rounded-sm px-3 py-1.5 text-left text-sm transition-colors hover:bg-accent ${tz.value === currentTz ? 'font-semibold text-foreground' : 'text-muted-foreground'}`}>
+                    <button key={tz.value} onClick={() => switchTimezone(tz.value)} className={`w-full rounded-sm px-3 py-1.5 text-left rtl:text-right text-sm transition-colors hover:bg-accent ${tz.value === currentTz ? 'font-semibold text-foreground' : 'text-muted-foreground'}`}>
                       {tz.label}
                     </button>
                   ))}
@@ -221,9 +224,9 @@ export function Header() {
                 <Globe className="h-5 w-5" />
               </Button>
               {langOpen && (
-                <div className="absolute left-0 top-full mt-1 w-36 rounded-md border bg-popover p-1 shadow-md z-50">
+                <div className="absolute left-0 rtl:left-auto rtl:right-0 top-full mt-1 w-36 rounded-md border bg-popover p-1 shadow-md z-50">
                   {localeList.map((loc) => (
-                    <button key={loc} onClick={() => switchLocale(loc)} className={`w-full rounded-sm px-3 py-1.5 text-left text-sm transition-colors hover:bg-accent ${loc === locale ? 'font-semibold text-foreground' : 'text-muted-foreground'}`}>
+                    <button key={loc} onClick={() => switchLocale(loc)} className={`w-full rounded-sm px-3 py-1.5 text-left rtl:text-right text-sm transition-colors hover:bg-accent ${loc === locale ? 'font-semibold text-foreground' : 'text-muted-foreground'}`}>
                       {localeLabels[loc]}
                     </button>
                   ))}
@@ -235,7 +238,7 @@ export function Header() {
               <>
                 <span className="text-sm text-muted-foreground">{user.displayName || user.role}</span>
                 <Button variant="ghost" size="sm" onClick={handleLogout}>
-                  <LogOut className="mr-1 h-4 w-4" />
+                  <LogOut className="mr-1 rtl:mr-0 rtl:ml-1 h-4 w-4" />
                   {t('logout')}
                 </Button>
               </>

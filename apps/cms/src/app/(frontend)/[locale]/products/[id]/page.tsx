@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
@@ -34,8 +35,11 @@ export default async function ProductDetailPage({
   params: Promise<{ locale: string; id: string }>
 }) {
   const { locale, id } = await params
-  const t = await getTranslations('products')
+  const t = await getTranslations('services')
   const product = await getProduct(id, locale)
+
+  const cookieStore = await cookies()
+  const isAuthenticated = !!cookieStore.get('payload-token')
 
   if (!product) {
     notFound()
@@ -55,7 +59,7 @@ export default async function ProductDetailPage({
         href="/products"
         className="mb-6 inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
       >
-        ← {t('backToProducts')}
+        ← {t('backToServices')}
       </Link>
 
       <div className="mt-4 space-y-6">
@@ -90,9 +94,15 @@ export default async function ProductDetailPage({
         )}
 
         <div className="flex gap-3">
-          <Link href={`/orders/new?product=${product.id}`}>
-            <Button size="lg">{t('addToOrder')}</Button>
-          </Link>
+          {isAuthenticated ? (
+            <Link href={`/orders/new?service=${product.id}`}>
+              <Button size="lg">{t('addToOrder')}</Button>
+            </Link>
+          ) : (
+            <Link href={`/auth/login?redirect=/products/${product.id}`}>
+              <Button size="lg" variant="outline">{t('loginToOrder')}</Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

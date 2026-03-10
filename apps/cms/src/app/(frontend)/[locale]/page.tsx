@@ -43,16 +43,16 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="flex flex-col items-center gap-4 px-4 py-20 text-center">
+      <section className="flex flex-col items-center gap-4 bg-gradient-to-br from-primary/10 via-background to-secondary/10 px-4 py-24 text-center">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{t('heroTitle')}</h1>
         <p className="text-xl text-muted-foreground">{t('heroSubtitle')}</p>
         <p className="max-w-2xl text-muted-foreground">{t('heroDescription')}</p>
         <div className="mt-4 flex gap-3">
-          <Link href="/auth/register">
+          <Link href="/products">
             <Button size="lg">{t('getStarted')}</Button>
           </Link>
           <Link href="/products">
-            <Button variant="outline" size="lg">{t('browseProducts')}</Button>
+            <Button variant="outline" size="lg">{t('browseServices')}</Button>
           </Link>
         </div>
       </section>
@@ -81,7 +81,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <section className="mx-auto w-full max-w-7xl px-4 py-16">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-bold">{t('featuredProducts')}</h2>
+            <h2 className="text-2xl font-bold">{t('featuredServices')}</h2>
             <p className="text-sm text-muted-foreground">{t('featuredDescription')}</p>
           </div>
           <Link href="/products">
@@ -90,7 +90,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
 
         {products.length === 0 ? (
-          <p className="text-center text-muted-foreground">{t('noProducts')}</p>
+          <p className="text-center text-muted-foreground">{t('noServices')}</p>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {products.map((product) => (

@@ -3,7 +3,7 @@ import { defineRouting } from 'next-intl/routing'
 import { NextRequest } from 'next/server'
 
 const routing = defineRouting({
-  locales: ['zh', 'en', 'ja', 'ko', 'de', 'fr', 'es'],
+  locales: ['zh', 'en', 'ja', 'ko', 'de', 'fr', 'es', 'ur', 'vi', 'ms'],
   defaultLocale: 'zh',
   localePrefix: 'always',
 })

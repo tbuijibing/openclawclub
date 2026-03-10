@@ -37,7 +37,7 @@ const regions = ['apac', 'na', 'eu'] as const
 function useNewOrderSchema() {
   const t = useTranslations('orders')
   return z.object({
-    product: z.string().min(1, t('productRequired')),
+    product: z.string().min(1, t('serviceRequired')),
     serviceTier: z.enum(serviceTiers, { message: t('serviceTierRequired') }),
     region: z.enum(regions, { message: t('regionRequired') }),
   })
@@ -53,7 +53,24 @@ export default function NewOrderPage() {
 
   const [products, setProducts] = useState<Product[]>([])
   const [pricing, setPricing] = useState<PricingConfig | null>(null)
+  const [authChecked, setAuthChecked] = useState(false)
   const [error, setError] = useState('')
+
+  // Auth guard: redirect unauthenticated users to login
+  useEffect(() => {
+    fetch('/api/users/me', { credentials: 'include' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!data?.user) {
+          router.replace(`/auth/login?redirect=/orders/new` as any)
+        } else {
+          setAuthChecked(true)
+        }
+      })
+      .catch(() => {
+        router.replace(`/auth/login?redirect=/orders/new` as any)
+      })
+  }, [router])
 
   const schema = useNewOrderSchema()
 
@@ -71,6 +88,7 @@ export default function NewOrderPage() {
   const selectedTier = watch('serviceTier')
 
   useEffect(() => {
+    if (!authChecked) return
     async function load() {
       const [prodRes, pricingRes] = await Promise.all([
         fetch(`/api/hardware-products?where[isActive][equals]=true&locale=${locale}&depth=0`),
@@ -85,7 +103,7 @@ export default function NewOrderPage() {
       }
     }
     load()
-  }, [locale])
+  }, [authChecked, locale])
 
   const productPrice = products.find((p) => String(p.id) === selectedProduct)?.price ?? 0
   const tierPrice = pricing?.installationPricing?.[selectedTier as keyof PricingConfig['installationPricing']] ?? 0
@@ -118,6 +136,14 @@ export default function NewOrderPage() {
     }
   }
 
+  if (!authChecked) {
+    return (
+      <div className="mx-auto max-w-2xl px-4 py-8">
+        <p className="text-center text-muted-foreground">{tCommon('loading')}</p>
+      </div>
+    )
+  }
+
   return (
     <div className="mx-auto max-w-2xl px-4 py-8">
       <h1 className="mb-6 text-2xl font-bold">{t('newOrder')}</h1>
@@ -130,10 +156,10 @@ export default function NewOrderPage() {
           <CardContent className="space-y-4">
             {/* Product select */}
             <div className="space-y-2">
-              <label className="text-sm font-medium">{t('product')}</label>
+              <label className="text-sm font-medium">{t('service')}</label>
               <Select onValueChange={(v) => setValue('product', v, { shouldValidate: true })}>
                 <SelectTrigger>
-                  <SelectValue placeholder={t('selectProduct')} />
+                  <SelectValue placeholder={t('selectService')} />
                 </SelectTrigger>
                 <SelectContent>
                   {products.map((p) => (

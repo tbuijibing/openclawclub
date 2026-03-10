@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
-import { Link } from '@/i18n/navigation'
+import { Link, useRouter } from '@/i18n/navigation'
 import { useLocale, useTranslations, Messages } from 'next-intl'
 import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -36,16 +36,35 @@ export default function OrderDetailPage() {
   const t = useTranslations('orders')
   const tCommon = useTranslations('common')
   const locale = useLocale()
+  const router = useRouter()
   const params = useParams()
   const orderId = params.id as string
   const { formatDate } = useTimezone()
 
   const [order, setOrder] = useState<Order | null>(null)
   const [loading, setLoading] = useState(true)
+  const [authChecked, setAuthChecked] = useState(false)
   const [paying, setPaying] = useState(false)
   const [error, setError] = useState('')
 
+  // Auth guard: redirect unauthenticated users to login
   useEffect(() => {
+    fetch('/api/users/me', { credentials: 'include' })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!data?.user) {
+          router.replace(`/auth/login?redirect=/orders/${orderId}` as any)
+        } else {
+          setAuthChecked(true)
+        }
+      })
+      .catch(() => {
+        router.replace(`/auth/login?redirect=/orders/${orderId}` as any)
+      })
+  }, [router, orderId])
+
+  useEffect(() => {
+    if (!authChecked) return
     async function fetchOrder() {
       try {
         const res = await fetch(`/api/orders/${orderId}?depth=1&locale=${locale}`, {
@@ -60,7 +79,7 @@ export default function OrderDetailPage() {
       }
     }
     fetchOrder()
-  }, [orderId, locale, tCommon])
+  }, [authChecked, orderId, locale, tCommon])
 
   async function handlePay() {
     if (!order) return
@@ -85,7 +104,7 @@ export default function OrderDetailPage() {
     }
   }
 
-  if (loading) {
+  if (!authChecked || loading) {
     return (
       <div className="mx-auto max-w-2xl px-4 py-8">
         <p className="text-center text-muted-foreground">{tCommon('loading')}</p>
@@ -123,7 +142,7 @@ export default function OrderDetailPage() {
         </CardHeader>
         <CardContent className="space-y-3">
           <Row label={t('orderNumber')} value={order.orderNumber} />
-          <Row label={t('product')} value={productName} />
+          <Row label={t('service')} value={productName} />
           <Row label={t('serviceTier')} value={order.serviceTier ? t(order.serviceTier as any) : '-'} />
           <Row label={t('region')} value={order.region ? t(`region${order.region.charAt(0).toUpperCase() + order.region.slice(1)}` as any) : '-'} />
           <Row label={t('total')} value={`${order.currency} ${order.totalAmount.toFixed(2)}`} />

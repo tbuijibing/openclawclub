@@ -63,7 +63,7 @@ export default buildConfig({
   }),
   i18n: {
     fallbackLanguage: 'zh',
-    supportedLanguages: { zh, en, ja, ko, de, fr, es },
+    supportedLanguages: { zh, en, ja, ko, de, fr, es, ur: en, vi: en, ms: en },
     translations: adminTranslations,
   },
   localization: {
@@ -75,6 +75,9 @@ export default buildConfig({
       { label: 'Deutsch', code: 'de' },
       { label: 'Français', code: 'fr' },
       { label: 'Español', code: 'es' },
+      { label: 'اردو', code: 'ur' },
+      { label: 'Tiếng Việt', code: 'vi' },
+      { label: 'Bahasa Melayu', code: 'ms' },
     ],
     defaultLocale: 'zh',
     fallback: true,

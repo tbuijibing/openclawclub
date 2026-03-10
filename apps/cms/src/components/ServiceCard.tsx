@@ -3,29 +3,32 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
-interface ProductCardProps {
+interface ServiceCardProps {
   id: string | number
   name: string
   description: string
   price: number
   category: string
   locale: string
+  isAuthenticated?: boolean
   translations: {
     viewDetails: string
     price: string
+    addToOrder?: string
     categories: Record<string, string>
   }
 }
 
-export function ProductCard({
+export function ServiceCard({
   id,
   name,
   description,
   price,
   category,
   locale,
+  isAuthenticated,
   translations,
-}: ProductCardProps) {
+}: ServiceCardProps) {
   const categoryLabel = translations.categories[category] || category
 
   return (
@@ -43,9 +46,16 @@ export function ProductCard({
         <span className="text-lg font-bold">
           ${price.toFixed(2)}
         </span>
-        <Link href={`/products/${id}`}>
-          <Button size="sm">{translations.viewDetails}</Button>
-        </Link>
+        <div className="flex gap-2">
+          {isAuthenticated && translations.addToOrder && (
+            <Link href={`/orders/new?service=${id}`}>
+              <Button size="sm" variant="outline">{translations.addToOrder}</Button>
+            </Link>
+          )}
+          <Link href={`/products/${id}`}>
+            <Button size="sm">{translations.viewDetails}</Button>
+          </Link>
+        </div>
       </CardFooter>
     </Card>
   )
